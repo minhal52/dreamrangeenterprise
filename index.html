@@ -3,197 +3,891 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Draw | Dream Range Enterprises</title>
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Dream Range Enterprise | Lucky Draw</title>
+    <!-- Add Font Awesome CDN link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-    .footer {
-    background-color: #222;
-    color: #fff;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            
+        }
+
+        /* Sparkle Effect */
+.sparkle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/images/sparkle.png') repeat center;
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+    animation: sparkle-background 5s infinite linear;
+}
+
+/* Sparkle Animation */
+@keyframes sparkle-background {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+/* Adjust sparkle items to be golden and more subtle */
+.sparkle-item {
+    position: absolute;
+    width: 8px; /* Set a default size, you can vary it later with JS */
+    height: 8px; /* Set a default size */
+    background-color: gold; /* Golden color */
+    border-radius: 50%;
+    opacity: 0.3; /* Subtle opacity */
+    animation: sparkle-item-animation 5s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 1000; /* Ensure the sparkles are above other content */
+}
+
+/* Animation for the sparkle items */
+@keyframes sparkle-item-animation {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-5px) rotate(20deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+    }
+}
+
+        .hero {
+    background: url('assets/images/bg3.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
 }
 
-.footer a {
-    color: #FFD700;
-    text-decoration: none;
+/* Sparkle Effect */
+.sparkle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/images/sparkle.png') repeat center;
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
 }
 
-.footer a:hover {
-    text-decoration: underline;
+.logo {
+    width: 200px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
 }
+
+.presented {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.lucky-text {
+    font-size: 4rem;
+    color: gold;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px black;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+}
+
+/* Surprise Box */
+.surprise-box-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.golden-glow {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    background: radial-gradient(circle, rgba(255,215,0,0.9) 0%, rgba(255,215,0,0) 80%);
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(25px);
+}
+
+.surprise-box {
+    width: 300px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Coin Styling */
+.coin {
+    width: 170px;
+    position: absolute;
+    z-index: 3;
+}
+
+/* Positioning Coins */
+.coin-left {
+    left: -180px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-10deg);
+}
+
+.coin-right {
+    right: -180px;
+    top: 50%;
+    transform: translateY(-50%) rotate(10deg);
+}
+
+/* Gift Images */
+.gift {
+    position: absolute;
+    width: 120px; /* Adjust size as needed */
+    height: 120px;
+    z-index: 2;
+}
+
+.gift-left {
+    left: 5%;
+    bottom: 10%; /* Adjust position */
+}
+
+.gift-right {
+    right: 5%;
+    bottom: 10%; /* Adjust position */
+}
+
+/* Buy Ticket Button */
+.buy-ticket {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: gold;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    z-index: 2;
+}
+
+.buy-ticket:hover {
+    background-color: orange;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .lucky-text {
+        font-size: 3.5rem;
+    }
+    .golden-glow {
+        width: 350px;
+        height: 350px;
+    }
+    .surprise-box {
+        width: 270px;
+    }
+    .coin {
+        width: 140px;
+    }
+    .coin-left {
+        left: -150px;
+    }
+    .coin-right {
+        right: -150px;
+    }
+    .gift-left, .gift-right {
+        width: 100px;
+        height: 100px;
+        bottom: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 10px 0;
+    }
+    .logo {
+        width: 130px;
+    }
+    .presented {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    .lucky-text {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    .golden-glow {
+        width: 250px;
+        height: 250px;
+    }
+    .surprise-box {
+        width: 220px;
+    }
+    .coin {
+        width: 100px;
+    }
+    .coin-left {
+        left: -100px;
+        transform: translateY(-50%) rotate(-15deg);
+    }
+    .coin-right {
+        right: -100px;
+        transform: translateY(-50%) rotate(15deg);
+    }
+    .buy-ticket {
+        font-size: 0.9rem;
+        padding: 8px 18px;
+    }
+    .gift-left, .gift-right {
+        width: 80px;
+        height: 80px;
+        bottom: 20%;
+    }
+}
+
+@media (max-width: 480px) {
+    .lucky-text {
+        font-size: 2rem;
+    }
+    .golden-glow {
+        width: 200px;
+        height: 200px;
+    }
+    .surprise-box {
+        width: 180px;
+    }
+    .coin {
+        width: 80px;
+    }
+    .coin-left {
+        left: -80px;
+        transform: translateY(-50%) rotate(-20deg);
+    }
+    .coin-right {
+        right: -80px;
+        transform: translateY(-50%) rotate(20deg);
+    }
+    .buy-ticket {
+        font-size: 0.8rem;
+        padding: 7px 15px;
+    }
+    .gift-left, .gift-right {
+        width: 60px;
+        height: 60px;
+        bottom: 25%;
+    }
+}
+
+/* Terms & Conditions Section */
+.terms-section {
+    background: url('assets/images/bg3.jpg') no-repeat center center/cover;
+    padding: 50px 20px;
+    color: gold;
+    position: relative;
+}
+
+/* Overlay Effect for Better Readability */
+.terms-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark Overlay */
+    z-index: 1;
+}
+
+/* Ensuring Content Appears Above the Overlay */
+.terms-heading, .terms-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Golden Text Heading */
+.terms-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 
+                 0 0 20px rgba(255, 215, 0, 0.6), 
+                 0 0 30px rgba(255, 215, 0, 0.4);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Terms Content Styling (Left-Aligned) */
+.terms-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.terms-content p {
+    font-size: 1.2rem;
+    color: gold;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .terms-heading {
+        font-size: 2.5rem;
+    }
+    .terms-content {
+        max-width: 90%;
+    }
+    .terms-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .terms-heading {
+        font-size: 2rem;
+    }
+    .terms-content p {
+        font-size: 0.9rem;
+    }
+}
+/* Prizes Section with Background Image */
+.prizes-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: url('assets/images/bg3.jpg') no-repeat center center/cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Grid Container */
+.prizes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Centered Prizes */
+.prizes-center {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 350px;
+}
+
+/* Prize Category Wrapper */
+.prize-category {
+    margin-bottom: 40px;
+}
+
+/* Heading Styles */
+.prizes-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+    margin-bottom: 20px;
+}
+
+/* Prize Item Box */
+.prize-item,
+.prizes-center {
+    border: 2px solid gold; /* Gold Border */
+    border-radius: 10px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5); /* Slight Dark Background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Image Styling */
+.prizes-container img,
+.prizes-center img {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Text Below Image */
+.prize-item p,
+.prizes-center p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 10px;
+}
+
+/* Hover Effect */
+.prizes-container img:hover,
+.prizes-center img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .prizes-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .prizes-heading {
+        font-size: 2rem;
+    }
+    .prizes-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+.prize-name {
+    font-size: 1rem;
+    color: gold;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+/* Ticket Section */
+.ticket-section {
+    background: url('assets/images/bg3.jpg') no-repeat center center/cover; /* Background Image */
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 0; /* Removed the extra space above */
+}
+
+/* Ticket Heading */
+.ticket-section h2 {
+    font-size: 2.5rem; /* Larger font size for better visibility */
+    color: gold; /* Changed to golden color */
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8); /* Adding a subtle glow effect */
+}
+
+/* Ticket Subheading */
+.ticket-subheading {
+    font-size: 1.2rem;
+    color: gold; /* Golden color */
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+/* Ticket Button */
+.ticket-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: gold; /* Golden background color */
+    color: black;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.ticket-button:hover {
+    background-color: orange; /* Hover effect */
+}
+
+/* Form Container */
+.form-container {
+    max-width: 450px; /* Slightly wider container */
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for better contrast */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    margin: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Input & Button Styles */
+input, textarea, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff; /* White background for inputs */
+}
+
+/* Address Field (Textarea) */
+textarea {
+    height: 100px; /* Larger input field */
+    resize: vertical;
+}
+
+/* Ticket Now Button */
+.ticketnow {
+    background: #FFC107; /* Golden color */
+    color: white;
+    font-size: 18px; /* Slightly larger font */
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    padding: 12px; /* Added padding for better button size */
+    border-radius: 5px;
+}
+
+.ticketnow:hover {
+    background: #1eb656; /* Green hover effect */
+}
+
+/* Disable Ticket Button */
+.ticketnow:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 480px) {
+    .ticket-section h2 {
+        font-size: 1.8rem; /* Smaller heading for mobile */
+    }
+    .form-container {
+        padding: 20px;
+    }
+    input, textarea, button {
+        font-size: 14px; /* Slightly smaller font size for better mobile usability */
+    }
+}
+
+/* Buy Ticket Button */
+.buy-ticket {
+    padding: 12px 20px; /* Reduce padding to decrease width */
+    font-size: 1.2rem; /* Text size */
+    background-color: gold; /* Golden background */
+    color: black; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor to indicate clickability */
+    transition: 0.3s ease-in-out; /* Smooth transition on hover */
+    text-transform: uppercase; /* Make text uppercase */
+    font-weight: bold; /* Make text bold */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+    width: auto; /* Adjust width to auto to make it more compact */
+    max-width: 250px; /* Optional: limit the maximum width if needed */
+}
+
+/* Hover Effect */
+.buy-ticket:hover {
+    background-color: #ff7f00; /* Change to orange on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Focus Effect (for accessibility) */
+.buy-ticket:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px 2px rgba(255, 215, 0, 0.8); /* Glow effect on focus */
+}
+.lucky-text i {
+    font-size: 3rem; /* Adjust the size of the icon */
+    color: gold;     /* Change the color of the icon */
+    margin: 0 10px;  /* Add spacing between the icon and the text */
+}
+
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-<nav class="navbar">
-    <div class="logo">
-        <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo">
-    </div>
-    <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#prize-showcase">Prizes</a></li>
-        <li><a href="#terms-section">Terms & Conditions</a></li>
-        <li><a href="#ticket-section">Ticket Now</a></li>
-    </ul>
-    <div class="toggle-btn" onclick="toggleMenu()">&#9776;</div>
-</nav>
-
-
-    <section class="hero">
-        <!-- First Slide -->
-        <div class="slider">
-            <div class="slide active" id="first-slide">
-                <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo">
-
-                <h1>Dream Range Enterprises Presents </h1>
-                <p>Lucky Draw</p>
-                <button class="cta">Join Now</button>
-            </div>
+    
+    <!-- <header class="navbar">
+        <div class="logo-container">
+            <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo" class="navbar-logo">
         </div>
-
-        <!-- Stage Container (for prize slides) -->
-        <div class="stage-container">
-            <img src="assets/images/stage-removebg-preview.png" alt="Stage Image" class="stage-img">
-            <div class="slide-container">
-                <div class="slide">
-                    <h2>1st Prize</h2>
-                    <img src="assets/images/1st_prize-removebg-preview.png" alt="Prize 1" class="prize-img">
-                </div>
-                <div class="slide">
-                    <h2>2nd Prize</h2>
-                    <img src="assets/images/2nd_prize-removebg-preview.png" alt="Prize 2" class="prize-img">
-                </div>
-                <div class="slide">
-                    <h2>3rd Prize</h2>
-                    <img src="assets/images/3rd_prize-removebg-preview.png" alt="Prize 3" class="prize-img">
-                </div>
-                <div class="slide">
-                    <h2>4th Prize</h2>
-                    <img src="assets/images/4th_prize-removebg-preview.png" alt="Prize 4" class="prize-img">
-                </div>
-                <div class="slide">
-                    <h2>5th Prize</h2>
-                    <img src="assets/images/5th_prize-removebg-preview.png" alt="Prize 5" class="prize-img">
-                </div>
-                
-            </div>
+        <nav class="navbar-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header> -->
+    <div class="hero">
+        <!-- Sparkle Overlay -->
+        <div class="sparkle"></div>
+    
+        <!-- Centered Content -->
+        <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo" class="logo">
+        <div class="presented">Dream Range Presents</div>
+        <div class="lucky-text">
+            <i class="fas fa-gift"></i> Lucky Draw <i class="fas fa-gift"></i>
         </div>
         
-    </section>
-
-    <!-- Terms & Conditions Section -->
-<section class="terms-section" id="terms-section">
-    <h2>Terms & Conditions</h2>
-    <div class="terms-content">
-        <p>1. Coupon are not exchangeable for cash.</p>
-        <p>2. A Customer Can Purchase Any Number Of Coupons.</p>
-        <p>3. Winner Shall Redeem The Prize Within 30 days From The Date Of Draw.</p>
-        <p>4. Customer Should Carry Their Coupon During The Time Of Purchase As Well As Winning Prize.</p>
-        <p>5. In Case Of Any Eventuality, The Draw Date And Place Can Be Changed At The Sole Discretion Of The Organiser.</p>
-        <p>6. The Method Of Draw Is At The Sole Discretion Of The Organiser.</p>
-        <p>7. Winner Of Grand Lucky Coupon Shall Submit Their Coupon Along With Their Passport Size Photograph And Pan Card Copy Or Voter Id Copy.</p>
-        <p>8. A Coupon Can Win Only One Prize, Whichever Is Highest.</p>
-        <p>9. Customer Will Be Informed If There Is Any Changes.</p>
-        <p>10. Car Registration Will Take Place At The Lucky Winner's Preferred Location, And He Is Responsible For Paying The Registration Fee.</p>
-        <p>11. Draw will be live to watch on YouTube at 8.00 pm.</p>
+        
+        <!-- Surprise Box with Coins -->
+        <div class="surprise-box-container">
+            <div class="golden-glow"></div>
+    
+            <img src="assets/images/coins2-removebg-preview.png" alt="Coins Left" class="coin coin-left">
+            <img src="assets/images/surprise_boix-removebg-preview.png" alt="Surprise Box" class="surprise-box">
+            <img src="assets/images/coins2-removebg-preview.png" alt="Coins Right" class="coin coin-right">
+        </div>
+    
+        <!-- Gift Images for Left and Right -->
+        <img src="assets/images/gifts-removebg-preview.png" alt="Gift Left" class="gift gift-left">
+        <img src="assets/images/gifts2-removebg-preview.png" alt="Gift Right" class="gift gift-right">
+    
+        <!-- Buy Ticket Button -->
+        <button class="buy-ticket" onclick="scrollToTicketSection()">Buy Ticket</button>
     </div>
     
+<!-- Terms & Conditions Section -->
+<section class="terms-section" id="terms-section">
+    <h2 class="terms-heading">Terms & Conditions</h2>
+    <div class="terms-content">
+        <p>1. Coupons are not exchangeable for cash.</p>
+        <p>2. A customer can purchase any number of coupons.</p>
+        <p>3. Winners must redeem their prize within 30 days from the date of the draw.</p>
+        <p>4. Customers should carry their coupon during the time of purchase as well as when claiming the prize.</p>
+        <p>5. In case of any eventuality, the draw date and place can be changed at the sole discretion of the organizer.</p>
+        <p>6. The method of the draw is at the sole discretion of the organizer.</p>
+        <p>7. The winner of the Grand Lucky Coupon must submit their coupon along with a passport-sized photograph and a copy of their PAN card or voter ID.</p>
+        <p>8. A coupon can win only one prize, whichever is the highest.</p>
+        <p>9. Customers will be informed if there are any changes.</p>
+        <p>10. Car registration will take place at the lucky winner's preferred location, and they are responsible for paying the registration fee.</p>
+        <p>11. The draw will be live on YouTube at 8:00 PM.</p>
+    </div>
 </section>
-    <section class="prize-showcase" id="prize-showcase">
-        <!-- Top 10 Prizes -->
-        <h2>Top 10 Prizes</h2>
-        <div class="top-prizes">
-            <div class="prize-card">
-                <img src="assets/images/1st_prize-removebg-preview.png" alt="Prize 1">
-                <p class="prize-name">4 BHK HOUSE</p>
-            </div>
-            <div class="prize-card">
-                <img src="assets/images/2nd_prize-removebg-preview.png" alt="Prize 2">
-                <p class="prize-name">MAHINDRA THAR</p>
-            </div>
-            <div class="prize-card">
-                <img src="assets/images/3rd_prize-removebg-preview.png" alt="Prize 3">
-                <p class="prize-name">SUZUKI SWIFT CAR</p>
-            </div>
-            <div class="prize-card">
-                <img src="assets/images/4th_prize-removebg-preview.png" alt="Prize 4">
-                <p class="prize-name">YAMAHA R15 BIKE</p>
-            </div>
-            <div class="prize-card">
-                <img src="assets/images/5th_prize-removebg-preview.png" alt="Prize 5">
-                <p class="prize-name">HONDA ACTIVA</p>
-            </div>
-            <div class="prize-card">
-                <img src="assets/images/6-9 th prize.jpg" alt="Prize 6">
-                <p class="prize-name">8 GRAM GOLD COIN</p>
-            </div>
-            <div class="prize-card">
-                <img src="assets/images/6-9 th prize.jpg" alt="Prize 6">
-
-                <p class="prize-name">6 GRAM GOLD COIN</p>
-            </div>
-            <div class="prize-card">
-                <img src="assets/images/6-9 th prize.jpg" alt="Prize 6">
-
-                <p class="prize-name">4 GRAM GOLD COIN</p>
-            </div>
-            <div class="prize-card">
-                <img src="assets/images/6-9 th prize.jpg" alt="Prize 6">
-
-                <p class="prize-name">2 GRAM GOLD COIN</p>
-            </div>
-            <div class="prize-card">
-                <img src="assets/images/10th_prize-removebg-preview.png" alt="Prize 6">
-
-                <p class="prize-name">BICYCLE</p>
-            </div>
-        </div>
+<!-- Prizes Section -->
+<section class="prizes-section">
     
-        <!-- Gold Ring Prize Section -->
-        <h2 class="gold-title"> FOR 10 Lucky Winners</h2>
-        <div class="gold-ring-section">
-            <img src="assets/images/10luckywinners-removebg-preview.png" alt="Gold Ring Prize">
-            <p class="prize-name">1 GRAM GOLD RING</p>
-        </div>
-    
-        <!-- Attractive Prizes -->
-        <h2>For 30 Lucky Winners</h2>
-        <div class="attractive-prizes">
-            <div class="prize-small">
-                <img src="assets/images/30luckywinners-removebg-preview.png" alt="Prize 11">
-                <p class="prize-name">Attractive Prizes</p>
+    <!-- Top 10 Winners -->
+    <div class="prize-category">
+        <h2 class="prizes-heading">Top 10 Winners</h2>
+        <div class="prizes-container">
+            <div class="prize-item">
+                <img src="assets/images/1stprize-removebg-preview.png" alt="1st Prize">
+                <p>1st Prize</p>
+                <span class="prize-name">4 BHK HOUSE</span> <!-- Prize Name Below -->
             </div>
-          
+            <div class="prize-item">
+                <img src="assets/images/2nd_prize-removebg-preview.png" alt="2nd Prize">
+                <p>2nd Prize</p>
+                <span class="prize-name">MAHINDRA THAR</span>
+            </div>
+            <div class="prize-item">
+                <img src="assets/images/3rd_prize-removebg-preview.png" alt="3rd Prize">
+                <p>3rd Prize</p>
+                <span class="prize-name">SUZUKI SWIFT CAR</span>
+            </div>
+            <div class="prize-item">
+                <img src="assets/images/4th_prize-removebg-preview.png" alt="4th Prize">
+                <p>4th Prize</p>
+                <span class="prize-name">YAMAHA R15 BIKE</span>
+            </div>
+            <div class="prize-item">
+                <img src="assets/images/5th_prize-removebg-preview.png" alt="5th Prize">
+                <p>5th Prize</p>
+                <span class="prize-name">HONDA ACTIVA</span>
+            </div>
+            <div class="prize-item">
+                <img src="assets/images/6-9_th_prize-removebg-preview.png" alt="6th - 9th Prize">
+                <p>6th Prize</p>
+                <span class="prize-name">8 GRAM GOLD COIN</span>
+
+            </div>
+            <div class="prize-item">
+                <img src="assets/images/6-9_th_prize-removebg-preview.png" alt="6th - 9th Prize">
+                <p>7th Prize</p>
+                <span class="prize-name">6 GRAM GOLD COIN</span>
+
+            </div>
+            <div class="prize-item">
+                <img src="assets/images/6-9_th_prize-removebg-preview.png" alt="6th - 9th Prize">
+                <p>8th Prize</p>
+                <span class="prize-name">4 GRAM GOLD COIN</span>
+
+            </div>
+            <div class="prize-item">
+                <img src="assets/images/6-9_th_prize-removebg-preview.png" alt="6th - 9th Prize">
+                <p>9th Prize</p>
+                <span class="prize-name">2 GRAM GOLD COIN</span>
+
+            </div>
+            <div class="prize-item">
+                <img src="assets/images/10th_prize-removebg-preview.png" alt="10th Prize">
+                <p>10th Prize</p>
+                <span class="prize-name">BICYCLE</span>
+
+            </div>
+       
+    </div>
+
+    <!-- 1 Gram Gold Ring -->
+    <div class="prize-category">
+        <h2 class="prizes-heading">10 Lucky Winners</h2>
+        <div class="prizes-center">
+            <img src="assets/images/10luckywinners-removebg-preview.png" alt="Gold Ring">
+            <p>Gold Ring</p>
+            <span class="prize-name"> 1 GRAM GOLD RING</span>
         </div>
-    </section>
+    </div>
+
+    <!-- Exciting Prizes -->
+    <div class="prize-category">
+        <h2 class="prizes-heading">30 Lucky Winners</h2>
+        <div class="prizes-center">
+            <img src="assets/images/gifts-removebg-preview.png" alt="Exciting Prize">
+            <p></p>
+            <span class="prize-name">EXCITING GIFTS</span>
+        </div>
+    </div>
+
+    <!-- Other Participants' Prizes -->
+    <div class="prize-category">
+        <h2 class="prizes-heading">Other Participants' Prizes</h2>
+        <div class="prizes-container">
+            <div class="prize-item">
+                <img src="assets/images/extra prizes.jpg" alt="Participation Prize 1">
+                <!-- <p>1 Prize</p> -->
+                <!-- <span class="prize-name">Many more</span> -->
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Ticket Booking Section -->
 <!-- Ticket Booking Section -->
 <section class="ticket-section" id="ticket-section">
     <h2>Book Your Ticket</h2>
     <div class="form-container">
         <form id="ticketForm">
+            <!-- Name Field -->
             <input type="text" id="name" placeholder="Enter Your Name" required oninput="validateForm()">
+
+            <!-- Phone Number Field -->
             <input type="tel" id="contact" placeholder="Enter Contact Number" required oninput="validateForm()" maxlength="10">
-            <input type="number" id="tickets" placeholder="Number of Tickets" required oninput="validateForm()">
-            <textarea id="address" placeholder="Enter Your Address" required oninput="validateForm()"></textarea>
+
+            <!-- Email Field -->
             <input type="email" id="email" placeholder="Enter Email ID" required oninput="validateForm()">
+
+            <!-- Number of Tickets Field -->
+            <input type="number" id="tickets" placeholder="Number of Tickets" required oninput="validateForm()">
+
+            <!-- Address Field (Textarea) -->
+            <textarea id="address" placeholder="Enter Your Address" required oninput="validateForm()"></textarea>
+
+            <!-- Ticket Now Button -->
             <button type="button" id="ticketButton" onclick="sendToWhatsApp()" class="ticketnow" disabled>Ticket Now</button>
         </form>
     </div>
 </section>
+<script>
 
-    
-    <footer class="footer">
-        <div class="footer-container">
-            <h3>Contact Us</h3>
-            <p><strong>Contact:</strong> <a href="tel:9901111991">9901111991</a></p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/918277328080" target="_blank">8277328080</a></p>
-            <p><strong>Email:</strong> <a href="mailto:dreamrangeenterprises@gmail.com">dreamrangeenterprises@gmail.com</a></p>
-        </div>
-    </footer>
+function scrollToTicketSection() {
+    // Scroll to the section with the ID "ticket-section"
+    document.getElementById("ticket-section").scrollIntoView({ behavior: "smooth" });
+}
 
-    <script src="assets/js/main.js"></script>
+    function validateForm() {
+    let name = document.getElementById("name").value.trim();
+    let contact = document.getElementById("contact").value.trim();
+    let tickets = document.getElementById("tickets").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let ticketButton = document.getElementById("ticketButton");
+
+    // Regular expressions for validation
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let phonePattern = /^[0-9]{10}$/;
+
+    // Enabling the button if all fields are valid
+    if (name && phonePattern.test(contact) && tickets && address && emailPattern.test(email)) {
+        ticketButton.disabled = false;
+    } else {
+        ticketButton.disabled = true;
+    }
+}
+
+function sendToWhatsApp() {
+    let name = document.getElementById("name").value.trim();
+    let contact = document.getElementById("contact").value.trim();
+    let tickets = document.getElementById("tickets").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let email = document.getElementById("email").value.trim();
+
+    let phonePattern = /^[0-9]{10}$/;
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    // Check if any of the fields are invalid
+    if (!name || !phonePattern.test(contact) || !tickets || !address || !emailPattern.test(email)) {
+        alert("Please fill all fields correctly.");
+        return;
+    }
+
+    // Preparing the message for WhatsApp
+    let message = `Hello, I want to book tickets.%0A%0A*Name:* ${name}%0A*Contact:* ${contact}%0A*Email:* ${email}%0A*Tickets:* ${tickets}%0A*Address:* ${address}`;
+    let whatsappURL = `https://wa.me/918277328080?text=${message}`; // Corrected URL encoding
+
+    // Open the WhatsApp URL in a new window
+    window.open(whatsappURL, "_blank");
+}
+
+// Create a specified number of sparkle items dynamically
+function createSparkles() {
+        const body = document.querySelector('body'); // You can choose any container
+        const numberOfSparkles = 100; // Set how many sparkles you want to create
+
+        for (let i = 0; i < numberOfSparkles; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle-item');
+            
+            // Randomize the position, size, and animation duration of each sparkle
+            const size = Math.random() * 10 + 5; // Random size between 5px and 15px
+            const leftPosition = Math.random() * 100; // Random position along the X-axis (percentage)
+            const topPosition = Math.random() * 100; // Random position along the Y-axis (percentage)
+            const animationDuration = Math.random() * 5 + 3; // Random animation duration between 3s and 8s
+            
+            sparkle.style.width = `${size}px`;
+            sparkle.style.height = `${size}px`;
+            sparkle.style.left = `${leftPosition}%`;
+            sparkle.style.top = `${topPosition}%`;
+            sparkle.style.animationDuration = `${animationDuration}s`;
+
+            body.appendChild(sparkle); // Append sparkle item to body
+        }
+    }
+
+    // Run the sparkle creation function
+    createSparkles();
+</script>
+
 </body>
 </html>
