@@ -7,11 +7,11 @@
     <title>Dream Range Enterprise | Lucky Draw</title>
     <!-- Add Font Awesome CDN link -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+<!-- Google Font Import -->
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 
 </head>
+
     <style>
         * {
             margin: 0;
@@ -97,36 +97,31 @@ html, body {
     position: relative;
     z-index: 2;
 }
-
+/* Presented Text */
 .presented {
-    font-size: 4rem;
-    font-weight: 900;
-    font-family: 'Bungee Spice', sans-serif, Arial, sans-serif; /* Add backup */
-    color: #FFD700;
+    font-size: 3rem; /* Large size */
+    font-weight: 900; /* Extra bold */
+    font-family: 'Bungee', sans-serif; /* Bold and stylish */
+    color: #FFD700; /* Golden color */
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-align: center;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 0.5px black; /* Force rendering */
+    position: relative;
+    z-index: 2;
+
+    /* Strong black shadow effect */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1);
 }
 
-
-/* Responsive Font Size for Mobile */
-@media (max-width: 768px) {
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
     .presented {
-        font-size: 22px; /* Reduce font size for better fit */
-    font-family: 'Bungee Spice', sans-serif, Arial, sans-serif; /* Add backup */
-display: block;
-        letter-spacing: 1.5px;
+        font-size: 2rem; /* Adjusted for smaller screens */
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 1);
     }
 }
 
-@media (max-width: 480px) {
-    .presented {
-        font-size: 2rem; /* Smaller size for very small screens */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust shadow for mobile */
-    }
-}
+
 
 /* Lucky Text */
 .lucky-text {
@@ -718,7 +713,7 @@ textarea {
 }
 
     </style>
-
+</head>
 <body>
     
     <div class="hero-slider">
