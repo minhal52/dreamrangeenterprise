@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
 
+</head>
     <style>
         * {
             margin: 0;
@@ -97,25 +98,25 @@ html, body {
     z-index: 2;
 }
 
-/* Presented Text Styling */
 .presented {
-    font-size: 4rem; /* Large size for emphasis */
-    font-weight: 900; /* Extra bold */
-    font-family: 'Bungee Spice', sans-serif, Arial, sans-serif; /* Add backup fonts */
-    color: #FFD700; /* Gold color for highlighting */
-    margin-bottom: 15px;
-    position: relative;
-    z-index: 2;
+    font-size: 4rem;
+    font-weight: 900;
+    font-family: 'Bungee Spice', sans-serif, Arial, sans-serif; /* Add backup */
+    color: #FFD700;
     text-transform: uppercase;
-    letter-spacing: 2px; /* Spaced out for better readability */
+    letter-spacing: 2px;
     text-align: center;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Stronger shadow effect */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 0.5px black; /* Force rendering */
 }
+
 
 /* Responsive Font Size for Mobile */
 @media (max-width: 768px) {
     .presented {
         font-size: 22px; /* Reduce font size for better fit */
+    font-family: 'Bungee Spice', sans-serif, Arial, sans-serif; /* Add backup */
+display: block;
         letter-spacing: 1.5px;
     }
 }
@@ -717,7 +718,7 @@ textarea {
 }
 
     </style>
-</head>
+
 <body>
     
     <div class="hero-slider">
