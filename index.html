@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -96,37 +96,36 @@ html, body {
     position: relative;
     z-index: 2;
 }
+
+/* Presented Text Styling */
 .presented {
-    font-size: 4rem; /* Default size for larger screens */
+    font-size: 4rem; /* Large size for emphasis */
     font-weight: 900; /* Extra bold */
-    font-family: 'Bungee Spice', sans-serif; /* Unique stylish font */
-    color: #FFD700; /* Gold color */
+    font-family: 'Bungee Spice', sans-serif, Arial, sans-serif; /* Add backup fonts */
+    color: #FFD700; /* Gold color for highlighting */
     margin-bottom: 15px;
     position: relative;
     z-index: 2;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2px; /* Spaced out for better readability */
     text-align: center;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Stronger shadow effect */
 }
 
-/* Responsive Design for Mobile Screens */
+/* Responsive Font Size for Mobile */
 @media (max-width: 768px) {
     .presented {
-        font-size: 2.5rem; /* Smaller font size for mobile */
-        letter-spacing: 1px; /* Reduce spacing for better fit */
-        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Slightly softer shadow */
+        font-size: 22px; /* Reduce font size for better fit */
+        letter-spacing: 1.5px;
     }
 }
 
 @media (max-width: 480px) {
     .presented {
-        font-size: 2rem; /* Even smaller font for very small screens */
-        letter-spacing: 0.5px; /* Reduce letter spacing */
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Softer shadow */
+        font-size: 2rem; /* Smaller size for very small screens */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust shadow for mobile */
     }
 }
-
 
 /* Lucky Text */
 .lucky-text {
