@@ -969,23 +969,27 @@ textarea {
         <form id="ticketForm">
             <!-- Name Field -->
             <input type="text" id="name" placeholder="Enter Your Name" required oninput="validateForm()">
-
+    
             <!-- Phone Number Field -->
             <input type="tel" id="contact" placeholder="Enter Contact Number" required oninput="validateForm()" maxlength="10">
-
+    
             <!-- Email Field -->
             <input type="email" id="email" placeholder="Enter Email ID" required oninput="validateForm()">
-
+    
             <!-- Number of Tickets Field -->
             <input type="number" id="tickets" placeholder="Number of Tickets" required oninput="validateForm()">
-
+    
+            <!-- Referral Code Field -->
+            <input type="text" id="referral" placeholder="Enter Your Referral Code (Optional)" oninput="validateForm()">
+    
             <!-- Address Field (Textarea) -->
             <textarea id="address" placeholder="Enter Your Address" required oninput="validateForm()"></textarea>
-
+    
             <!-- Ticket Now Button -->
             <button type="button" id="ticketButton" onclick="sendToWhatsApp()" class="ticketnow" disabled>Ticket Now</button>
         </form>
     </div>
+    
 </section>
 <footer class="footer">
     <div class="footer-container">
