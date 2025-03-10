@@ -16,64 +16,25 @@
             font-family: Arial, sans-serif;
             
         }
-
-        /* Sparkle Effect */
-.sparkle {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Prevent horizontal scrolling */
+html, body {
+    overflow-x: hidden;
     width: 100%;
-    height: 100%;
-    background: url('assets/images/sparkle.png') repeat center;
-    opacity: 0.2;
-    z-index: 0;
-    pointer-events: none;
-    animation: sparkle-background 5s infinite linear;
 }
 
-/* Sparkle Animation */
-@keyframes sparkle-background {
-    0% {
-        opacity: 0.2;
-    }
-    50% {
-        opacity: 0.4;
-    }
-    100% {
-        opacity: 0.2;
-    }
+/* Ensure no section causes overflow */
+.hero, .hero-slider, .hero-slide {
+    width: 100vw;
+    overflow: hidden;
 }
 
-/* Adjust sparkle items to be golden and more subtle */
-.sparkle-item {
-    position: absolute;
-    width: 8px; /* Set a default size, you can vary it later with JS */
-    height: 8px; /* Set a default size */
-    background-color: gold; /* Golden color */
-    border-radius: 50%;
-    opacity: 0.3; /* Subtle opacity */
-    animation: sparkle-item-animation 5s infinite ease-in-out;
-    pointer-events: none;
-    z-index: 1000; /* Ensure the sparkles are above other content */
+/* Fix container causing overflow */
+* {
+    max-width: 100%;
 }
 
-/* Animation for the sparkle items */
-@keyframes sparkle-item-animation {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.3;
-    }
-    50% {
-        transform: translateY(-5px) rotate(20deg);
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.3;
-    }
-}
-
-        .hero {
+        /* Hero Section */
+.hero {
     background: url('assets/images/bg3.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
@@ -97,8 +58,35 @@
     opacity: 0.5;
     z-index: 0;
     pointer-events: none;
+    animation: sparkle-background 5s infinite linear;
 }
 
+/* Sparkle Background Animation */
+@keyframes sparkle-background {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.4; }
+}
+
+/* Individual Sparkle Items */
+.sparkle-item {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: gold;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: sparkle-item-animation 5s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Sparkle Animation */
+@keyframes sparkle-item-animation {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+    50% { transform: translateY(-5px) rotate(20deg); opacity: 0.5; }
+}
+
+/* Logo */
 .logo {
     width: 200px;
     margin-bottom: 10px;
@@ -106,14 +94,19 @@
     z-index: 2;
 }
 
+/* Presented Text */
 .presented {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 900;
     color: white;
     margin-bottom: 15px;
     position: relative;
     z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* Lucky Text */
 .lucky-text {
     font-size: 4rem;
     color: gold;
@@ -124,7 +117,7 @@
     margin-bottom: 20px;
 }
 
-/* Surprise Box */
+/* Surprise Box Container */
 .surprise-box-container {
     position: relative;
     display: flex;
@@ -133,6 +126,7 @@
     margin-top: 20px;
 }
 
+/* Golden Glow */
 .golden-glow {
     width: 400px;
     height: 400px;
@@ -143,6 +137,7 @@
     filter: blur(25px);
 }
 
+/* Surprise Box */
 .surprise-box {
     width: 300px;
     position: relative;
@@ -156,7 +151,7 @@
     z-index: 3;
 }
 
-/* Positioning Coins */
+/* Coin Positions */
 .coin-left {
     left: -180px;
     top: 50%;
@@ -169,22 +164,22 @@
     transform: translateY(-50%) rotate(10deg);
 }
 
-/* Gift Images */
+/* Gift Items */
 .gift {
     position: absolute;
-    width: 120px; /* Adjust size as needed */
+    width: 120px;
     height: 120px;
     z-index: 2;
 }
 
 .gift-left {
     left: 5%;
-    bottom: 10%; /* Adjust position */
+    bottom: 10%;
 }
 
 .gift-right {
     right: 5%;
-    bottom: 10%; /* Adjust position */
+    bottom: 10%;
 }
 
 /* Buy Ticket Button */
@@ -209,107 +204,84 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .lucky-text {
-        font-size: 3.5rem;
-    }
-    .golden-glow {
-        width: 350px;
-        height: 350px;
-    }
-    .surprise-box {
-        width: 270px;
-    }
-    .coin {
-        width: 140px;
-    }
-    .coin-left {
-        left: -150px;
-    }
-    .coin-right {
-        right: -150px;
-    }
-    .gift-left, .gift-right {
-        width: 100px;
-        height: 100px;
-        bottom: 15%;
-    }
+    .lucky-text { font-size: 3.5rem; }
+    .golden-glow { width: 350px; height: 350px; }
+    .surprise-box { width: 270px; }
+    .coin { width: 140px; }
+    .coin-left { left: -150px; }
+    .coin-right { right: -150px; }
+    .gift { width: 100px; height: 100px; bottom: 15%; }
 }
 
 @media (max-width: 768px) {
-    .hero {
-        padding: 10px 0;
-    }
-    .logo {
-        width: 130px;
-    }
-    .presented {
-        font-size: 1.2rem;
-        margin-bottom: 8px;
-    }
-    .lucky-text {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-    }
-    .golden-glow {
-        width: 250px;
-        height: 250px;
-    }
-    .surprise-box {
-        width: 220px;
-    }
-    .coin {
-        width: 100px;
-    }
-    .coin-left {
-        left: -100px;
-        transform: translateY(-50%) rotate(-15deg);
-    }
-    .coin-right {
-        right: -100px;
-        transform: translateY(-50%) rotate(15deg);
-    }
-    .buy-ticket {
-        font-size: 0.9rem;
-        padding: 8px 18px;
-    }
-    .gift-left, .gift-right {
-        width: 80px;
-        height: 80px;
-        bottom: 20%;
-    }
+    .hero { padding: 10px 0; }
+    .logo { width: 130px; }
+    .presented { font-size: 1.2rem; margin-bottom: 8px; }
+    .lucky-text { font-size: 2.5rem; margin-bottom: 15px; }
+    .golden-glow { width: 250px; height: 250px; }
+    .surprise-box { width: 220px; }
+    .coin { width: 100px; }
+    .coin-left { left: -100px; transform: translateY(-50%) rotate(-15deg); }
+    .coin-right { right: -100px; transform: translateY(-50%) rotate(15deg); }
+    .buy-ticket { font-size: 0.9rem; padding: 8px 18px; }
+    .gift { width: 80px; height: 80px; bottom: 20%; }
 }
 
 @media (max-width: 480px) {
-    .lucky-text {
-        font-size: 2rem;
-    }
-    .golden-glow {
-        width: 200px;
-        height: 200px;
-    }
-    .surprise-box {
-        width: 180px;
-    }
-    .coin {
-        width: 80px;
-    }
-    .coin-left {
-        left: -80px;
-        transform: translateY(-50%) rotate(-20deg);
-    }
-    .coin-right {
-        right: -80px;
-        transform: translateY(-50%) rotate(20deg);
-    }
-    .buy-ticket {
-        font-size: 0.8rem;
-        padding: 7px 15px;
-    }
-    .gift-left, .gift-right {
-        width: 60px;
-        height: 60px;
-        bottom: 25%;
-    }
+    .lucky-text { font-size: 2rem; }
+    .golden-glow { width: 200px; height: 200px; }
+    .surprise-box { width: 180px; }
+    .coin { width: 80px; }
+    .coin-left { left: -80px; transform: translateY(-50%) rotate(-20deg); }
+    .coin-right { right: -80px; transform: translateY(-50%) rotate(20deg); }
+    .buy-ticket { font-size: 0.8rem; padding: 7px 15px; }
+    .gift { width: 60px; height: 60px; bottom: 25%; }
+}
+
+/* Hero Slider */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* Prize Title */
+.prize-title {
+    font-size: 3rem;
+    color: gold;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Prize Image */
+.prize-img {
+    display: block;
+    width: 300px;
+    margin: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 1024px) {
+    .prize-img { width: 450px; }
+}
+
+@media screen and (min-width: 1440px) {
+    .prize-img { width: 550px; }
 }
 
 /* Terms & Conditions Section */
@@ -623,87 +595,201 @@ textarea {
     color: gold;     /* Change the color of the icon */
     margin: 0 10px;  /* Add spacing between the icon and the text */
 }
+/* footer */
+/* Footer Styles */
 .footer {
-    background-color: #222; /* Dark background */
-    color: #fff; /* White text */
+    background: #111;
+    background-image: url(assets/images/bg3.jpg);
+    color: #fff;
+    padding: 40px 20px;
     text-align: center;
-    padding: 20px;
+    position: relative;
 }
 
 .footer-container {
-    max-width: 500px;
+    max-width: 1100px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-.footer h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
-    color: #f8b400; /* Highlight color */
-}
-
-.footer p {
-    font-size: 16px;
-    margin: 10px 0;
-}
-
-.footer a {
-    color: #f8b400;
-    text-decoration: none;
+/* Footer Title */
+.footer-title {
+    font-size: 24px;
     font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: gold; /* Premium Look */
 }
 
-.footer a:hover {
-    color: #ffcc00;
+/* Contact List */
+.footer-contact {
+    list-style: none;
+    padding: 0;
 }
 
-.footer i {
-    margin-right: 8px;
-    color: #f8b400; /* Icon color */
-    font-size: 18px;
+.footer-contact li {
+    margin: 8px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-contact i {
+    color: gold;
+}
+
+.footer-contact a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-contact a:hover {
+    color: gold;
+}
+
+/* Social Icons */
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: inline-block;
+    font-size: 20px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    background: gold;
+    color: black;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+
+.footer-credit {
+    color: #bbb; /* Lighter color */
+    font-size: 14px;
+}
+
+.footer-credit a {
+    color: #ddd; /* Light link color */
+    text-decoration: none;
+}
+
+.footer-credit a:hover {
+    color: #fff; /* Brighter on hover */
 }
 
     </style>
 </head>
 <body>
     
-    <!-- <header class="navbar">
-        <div class="logo-container">
-            <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo" class="navbar-logo">
-        </div>
-        <nav class="navbar-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header> -->
-    <div class="hero">
-        <!-- Sparkle Overlay -->
-        <div class="sparkle"></div>
-    
-        <!-- Centered Content -->
-        <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo" class="logo">
-        <div class="presented">Dream Range Enterprises Presents</div>
-        <div class="lucky-text">
-            <i class="fas fa-gift"></i> Lucky Draw <i class="fas fa-gift"></i>
-        </div>
-        
-        
-        <!-- Surprise Box with Coins -->
-        <div class="surprise-box-container">
-            <div class="golden-glow"></div>
-    
-            <img src="assets/images/coins2-removebg-preview.png" alt="Coins Left" class="coin coin-left">
-            <img src="assets/images/surprise_boix-removebg-preview.png" alt="Surprise Box" class="surprise-box">
-            <img src="assets/images/coins2-removebg-preview.png" alt="Coins Right" class="coin coin-right">
+    <div class="hero-slider">
+        <!-- Slide 1: Lucky Draw Section -->
+        <div class="hero-slide active">
+            <div class="hero">
+                <div class="sparkle"></div>
+                <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo" class="logo">
+                <div class="presented">Dream Range Enterprises Presents</div>
+                <div class="lucky-text"><i class="fas fa-gift"></i> Lucky Draw <i class="fas fa-gift"></i></div>
+                <div class="surprise-box-container">
+                    <div class="golden-glow"></div>
+                    <img src="assets/images/coins2-removebg-preview.png" alt="Coins Left" class="coin coin-left">
+                    <img src="assets/images/surprise_boix-removebg-preview.png" alt="Surprise Box" class="surprise-box">
+                    <img src="assets/images/coins2-removebg-preview.png" alt="Coins Right" class="coin coin-right">
+                </div>
+                <img src="assets/images/gifts-removebg-preview.png" alt="Gift Left" class="gift gift-left">
+                <img src="assets/images/gifts2-removebg-preview.png" alt="Gift Right" class="gift gift-right">
+                <button class="buy-ticket" onclick="scrollToTicketSection()">Buy Ticket</button>
+            </div>
         </div>
     
-        <!-- Gift Images for Left and Right -->
-        <img src="assets/images/gifts-removebg-preview.png" alt="Gift Left" class="gift gift-left">
-        <img src="assets/images/gifts2-removebg-preview.png" alt="Gift Right" class="gift gift-right">
+        <!-- Slide 2 to 6: Prize Slides (with Lucky Draw Content) -->
+        <div class="hero-slide">
+            <div class="hero">
+                <div class="sparkle"></div>
+                <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo" class="logo">
+                <div class="presented">Dream Range Enterprises Presents</div>
+                <div class="lucky-text"><i class="fas fa-gift"></i> Lucky Draw <i class="fas fa-gift"></i></div>
+                <div class="prize-content">
+                    <h2 class="prize-title">1st Prize</h2>
+                    <img src="assets/images/1stprize-removebg-preview.png" alt="1st Prize" class="prize-img">
+                </div>
+                <button class="buy-ticket" onclick="scrollToTicketSection()">Buy Ticket</button>
+            </div>
+        </div>
     
-        <!-- Buy Ticket Button -->
-        <button class="buy-ticket" onclick="scrollToTicketSection()">Buy Ticket</button>
+        <div class="hero-slide">
+            <div class="hero">
+                <div class="sparkle"></div>
+                <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo" class="logo">
+                <div class="presented">Dream Range Enterprises Presents</div>
+                <div class="lucky-text"><i class="fas fa-gift"></i> Lucky Draw <i class="fas fa-gift"></i></div>
+                <div class="prize-content">
+                    <h2 class="prize-title">2nd Prize</h2>
+                    <img src="assets/images/2nd_prize-removebg-preview.png" alt="2nd Prize" class="prize-img">
+                </div>
+                
+                <button class="buy-ticket" onclick="scrollToTicketSection()">Buy Ticket</button>
+            </div>
+        </div>
+    
+        <div class="hero-slide">
+            <div class="hero">
+                <div class="sparkle"></div>
+                <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo" class="logo">
+                <div class="presented">Dream Range Enterprises Presents</div>
+                <div class="lucky-text"><i class="fas fa-gift"></i> Lucky Draw <i class="fas fa-gift"></i></div>
+                <div class="prize-content">
+                    <h2 class="prize-title">3rd Prize</h2>
+                    <img src="assets/images/3rd_prize-removebg-preview.png" alt="3rd Prize" class="prize-img">
+                </div>
+                <button class="buy-ticket" onclick="scrollToTicketSection()">Buy Ticket</button>
+            </div>
+        </div>
+    
+        <div class="hero-slide">
+            <div class="hero">
+                <div class="sparkle"></div>
+                <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo" class="logo">
+                <div class="presented">Dream Range Enterprises Presents</div>
+                <div class="lucky-text"><i class="fas fa-gift"></i> Lucky Draw <i class="fas fa-gift"></i></div>
+                <div class="prize-content">
+                    <h2 class="prize-title">4th Prize</h2>
+                    <img src="assets/images/4th_prize-removebg-preview.png" alt="4th Prize" class="prize-img">
+                </div>
+                <button class="buy-ticket" onclick="scrollToTicketSection()">Buy Ticket</button>
+            </div>
+        </div>
+    
+        <div class="hero-slide">
+            <div class="hero">
+                <div class="sparkle"></div>
+                <img src="assets/images/dreamrangelogo-removebg-preview.png" alt="Logo" class="logo">
+                <div class="presented">Dream Range Enterprises Presents</div>
+                <div class="lucky-text"><i class="fas fa-gift"></i> Lucky Draw <i class="fas fa-gift"></i></div>
+                <div class="prize-content">
+                    <h2 class="prize-title">5th Prize</h2>
+                    <img src="assets/images/5th_prize-removebg-preview.png" alt="5th Prize" class="prize-img">
+                </div>
+                <button class="buy-ticket" onclick="scrollToTicketSection()">Buy Ticket</button>
+            </div>
+        </div>
     </div>
     
 <!-- Terms & Conditions Section -->
@@ -809,15 +895,17 @@ textarea {
     </div>
 
     <!-- Other Participants' Prizes -->
-    <div class="prize-category">
+    <div class="prize-category" style="text-align: center;">
         <h2 class="prizes-heading">Other Participants' Prizes</h2>
-        <div class="prizes-container">
+        <div class="prizes-container" style="display: flex; justify-content: center; align-items: center;">
             <div class="prize-item">
-                <img src="assets/images/extra prizes.jpg" alt="Participation Prize 1">
+                <img src="assets/images/otherparticpantprizes-removebg-preview.png" alt="Participation Prize 1" style="display: block; max-width: 100%; height: auto;">
                 <!-- <p>1 Prize</p> -->
                 <!-- <span class="prize-name">Many more</span> -->
             </div>
         </div>
+    </div>
+    
     </div>
 
 </section>
@@ -847,17 +935,60 @@ textarea {
         </form>
     </div>
 </section>
-
 <footer class="footer">
     <div class="footer-container">
-        <h3>Contact Us</h3>
-        <p><i class="fas fa-phone"></i><strong>Contact:</strong> <a href="tel:9901111991">9901111991</a></p>
-        <p><i class="fab fa-whatsapp"></i><strong>WhatsApp:</strong> <a href="https://wa.me/918277328080" target="_blank">8277328080</a></p>
-        <p><i class="fas fa-envelope"></i><strong>Email:</strong> <a href="mailto:dreamrangeenterprises@gmail.com">dreamrangeenterprises@gmail.com</a></p>
+        <div class="footer-content">
+            <h3 class="footer-title">Get in Touch</h3>
+            <ul class="footer-contact">
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> <span>Madoor Kotekar, Mangalore</span></li>
+                </ul>
+                
+                <li><i class="fas fa-phone"></i> <a href="tel:9901111991">+91 99011 11991</a></li>
+                <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918277328080" target="_blank">+91 82773 28080</a></li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:dreamrangeenterprises@gmail.com">dreamrangeenterprises@gmail.com</a></li>
+            </ul>
+        </div>
+        <!-- <div class="footer-social">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div> -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Dream Range Enterprises. All Rights Reserved.</p>
+            <p class="footer-credit">Designed and Developed by <a href="https://geekbudsdesign.com" target="_blank">Geek Buds Design</a></p>
+        </div>
+        
     </div>
 </footer>
 
+
+
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+    let slides = document.querySelectorAll(".hero-slide");
+    let currentIndex = 0;
+    let slideInterval = 4000; // Change slide every 4 seconds
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove("active");
+            if (i === index) {
+                slide.classList.add("active");
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, slideInterval);
+});
+
+
+
 
 function scrollToTicketSection() {
     // Scroll to the section with the ID "ticket-section"
