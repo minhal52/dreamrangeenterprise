@@ -7,6 +7,9 @@
     <title>Dream Range Enterprise | Lucky Draw</title>
     <!-- Add Font Awesome CDN link -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -93,18 +96,37 @@ html, body {
     position: relative;
     z-index: 2;
 }
-
-/* Presented Text */
 .presented {
-    font-size: 2rem;
-    font-weight: 900;
-    color: white;
+    font-size: 4rem; /* Default size for larger screens */
+    font-weight: 900; /* Extra bold */
+    font-family: 'Bungee Spice', sans-serif; /* Unique stylish font */
+    color: #FFD700; /* Gold color */
     margin-bottom: 15px;
     position: relative;
     z-index: 2;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Stronger shadow effect */
 }
+
+/* Responsive Design for Mobile Screens */
+@media (max-width: 768px) {
+    .presented {
+        font-size: 2.5rem; /* Smaller font size for mobile */
+        letter-spacing: 1px; /* Reduce spacing for better fit */
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Slightly softer shadow */
+    }
+}
+
+@media (max-width: 480px) {
+    .presented {
+        font-size: 2rem; /* Even smaller font for very small screens */
+        letter-spacing: 0.5px; /* Reduce letter spacing */
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Softer shadow */
+    }
+}
+
 
 /* Lucky Text */
 .lucky-text {
@@ -899,7 +921,7 @@ textarea {
         <h2 class="prizes-heading">Other Participants' Prizes</h2>
         <div class="prizes-container" style="display: flex; justify-content: center; align-items: center;">
             <div class="prize-item">
-                <img src="assets/images/otherparticpantprizes-removebg-preview.png" alt="Participation Prize 1" style="display: block; max-width: 100%; height: auto;">
+                <img src="assets/images/otherprizes-removebg-preview (1).png" alt="Participation Prize 1" style="display: block; max-width: 100%; height: auto;">
                 <!-- <p>1 Prize</p> -->
                 <!-- <span class="prize-name">Many more</span> -->
             </div>
