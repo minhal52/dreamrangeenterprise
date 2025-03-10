@@ -712,6 +712,37 @@ textarea {
 .footer-credit a:hover {
     color: #fff; /* Brighter on hover */
 }
+/* Coupon Image Styling */
+.coupon-img {
+    display: block;
+    margin: 10px auto;
+    width: 520px; /* Default size */
+    height: auto;
+}
+
+/* Increase size for larger screens (Desktops & Laptops) */
+@media screen and (min-width: 1024px) {
+    .coupon-img {
+        width: 750px; /* Bigger size for large screens */
+        height: auto;
+    }
+}
+
+/* Adjust size for medium screens (Tablets) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .coupon-img {
+        width: 520px;
+        height: auto;
+    }
+}
+
+/* Adjust size for small screens (Mobile) */
+@media screen and (max-width: 767px) {
+    .coupon-img {
+        width: 520px; /* Smaller size for mobile screens */
+    }
+}
+
 
     </style>
 </head>
@@ -930,7 +961,11 @@ textarea {
 <!-- Ticket Booking Section -->
 <!-- Ticket Booking Section -->
 <section class="ticket-section" id="ticket-section">
-    <h2>Book Your Ticket</h2>
+    <h2>
+        Book Your Ticket
+        <img src="assets/images/coupon-removebg-preview.png" alt="Coupon Offer" class="coupon-img">
+    </h2>
+    <!-- <h2>Book Your Ticket</h2> -->
     <div class="form-container">
         <form id="ticketForm">
             <!-- Name Field -->
@@ -983,10 +1018,11 @@ textarea {
 
 
 <script>
+    // hero sliding effect
 document.addEventListener("DOMContentLoaded", function () {
     let slides = document.querySelectorAll(".hero-slide");
     let currentIndex = 0;
-    let slideInterval = 4000; // Change slide every 4 seconds
+    let slideInterval = 1300; // Change slide every 4 seconds
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
@@ -1006,12 +1042,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
+// buy ticket button scrolling to ticket section 
 
 function scrollToTicketSection() {
     // Scroll to the section with the ID "ticket-section"
     document.getElementById("ticket-section").scrollIntoView({ behavior: "smooth" });
 }
+// whatsapp form 
 
     function validateForm() {
     let name = document.getElementById("name").value.trim();
@@ -1057,6 +1094,7 @@ function sendToWhatsApp() {
     window.open(whatsappURL, "_blank");
 }
 
+// sparkle effect
 // Create a specified number of sparkle items dynamically
 function createSparkles() {
         const body = document.querySelector('body'); // You can choose any container
